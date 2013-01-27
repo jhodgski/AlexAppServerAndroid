@@ -2,11 +2,11 @@
 /**
  * Database config variables
  */
-define("DB_HOST", "127.0.0.1");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
-define("DB_DATABASE", "gcm");
- 
+define("DB_HOST", "localhost");
+define("DB_USER", "mwe");
+define("DB_PASSWORD", "Lut0nT0wn2012");
+define("DB_DATABASE", "mwe");
+
 /*
  * Google API Key
  */
