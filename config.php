@@ -2,7 +2,7 @@
 /**
  * Database config variables
  */
-define("DB_HOST", "localhost");
+define("DB_HOST", "localhost:3306");
 define("DB_USER", "mwe");
 define("DB_PASSWORD", "Lut0nT0wn2012");
 define("DB_DATABASE", "mwe");
