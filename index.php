@@ -111,9 +111,11 @@
                         ?>
                         <li>
                             <form id="<?php echo $row["id"] ?>" name="" method="post" onsubmit="return sendPushNotification('<?php echo $row["id"] ?>')">
-                                <label>Name: </label> <span><?php echo $row["name"] ?></span>
+                                <label>ID: </label> <span><?php echo $row["id"] ?></span>
                                 <div class="clear"></div>
-                                <label>Email:</label> <span><?php echo $row["email"] ?></span>
+                                <label>GCM Registration ID:</label> <span><?php echo $row["gcm_regid"] ?></span>
+                                <div class="clear"></div>
+                                <label>Created at:</label> <span><?php echo $row["created_at"] ?></span>
                                 <div class="clear"></div>
                                 <div class="send_container">
                                     <textarea rows="3" name="message" cols="25" class="txt_message" placeholder="Type message here"></textarea>

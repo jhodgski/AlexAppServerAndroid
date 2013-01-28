@@ -1,10 +1,10 @@
 
 <?php
- 
+
 class DB_Functions {
- 
+
     private $db;
- 
+
     //put your code here
     // constructor
     function __construct() {
@@ -13,19 +13,19 @@ class DB_Functions {
         $this->db = new DB_Connect();
         $this->db->connect();
     }
- 
+
     // destructor
     function __destruct() {
- 
+
     }
- 
+
     /**
      * Storing new user
      * returns user details
      */
-    public function storeUser($name, $email, $gcm_regid) {
+    public function storeUser($gcm_regid) {
         // insert user into database
-        $result = mysql_query("INSERT INTO gcm_users(name, email, gcm_regid, created_at) VALUES('$name', '$email', '$gcm_regid', NOW())");
+        $result = mysql_query("INSERT INTO gcm_users(gcm_regid, created_at) VALUES('$gcm_regid', NOW())");
         // check for successful store
         if ($result) {
             // get user details
@@ -41,7 +41,7 @@ class DB_Functions {
             return false;
         }
     }
- 
+
     /**
      * Getting all users
      */
@@ -49,7 +49,7 @@ class DB_Functions {
         $result = mysql_query("select * FROM gcm_users");
         return $result;
     }
- 
+
 }
- 
+
 ?>
