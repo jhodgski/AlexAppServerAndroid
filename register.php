@@ -20,7 +20,8 @@ if (isset($_POST["regId"])) {
     $res = $db->storeUser($gcm_regid);
 
     $registatoin_ids = array($gcm_regid);
-    $message = array("product" => "shirt");
+    //$message = array("product" => "shirt");
+    $message = array("You will receive notifications like this when there is an update to the Alex App.");
 
     $result = $gcm->send_notification($registatoin_ids, $message);
 
