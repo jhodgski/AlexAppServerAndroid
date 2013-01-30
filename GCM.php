@@ -44,6 +44,13 @@ class GCM {
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 
+if (false) {
+	echo '<br/><br/>Fields: ';
+	print_r($fields);
+
+	return;
+}
+
         // Execute post
         $result = curl_exec($ch);
         if ($result === FALSE) {

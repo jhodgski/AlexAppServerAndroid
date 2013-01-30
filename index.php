@@ -10,11 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	foreach($_POST['regId'] as $regId) {
 		array_push($regIds, $regId);
 	}
+	//$regIds = array("APA91bGZoOtIKZrmNgtsZ4wTHRmy2DNg7ezENlUFM62Z8BlrncL7TlR8qjwB5oxymCxXZgZYB7xfOgZgKz3qvz4ITSOASCpiAXHlNPDoUjx1SFWlWWDqPsOELI8SJLnXYyDER4vIJmYDdRA8BaxLVtkNCA65yNT4bg");
 
     $gcm = new GCM();
 
     $message = array("update" => $message);
     $collapse_key = "Update available";
+
+	echo 'params...';
+	print_r($regIds);
+	print_r($message);
+
+	echo 'sending...';
 
     $result = $gcm->send_notification($regIds, $message, $collapse_key);
 

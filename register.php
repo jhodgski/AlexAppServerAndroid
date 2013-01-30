@@ -21,7 +21,7 @@ if (isset($_POST["regId"])) {
 
     $registration_ids = array($gcm_regid);
     //$message = array("product" => "shirt");
-    $message = array("thanks" => "You will receive notifications like this when there is an update to the Alex App.");
+    $message = array("registered" => "You will receive notifications like this when there is an update to the Alex App.");
     $collapse_key = "Thank you";
 
     $result = $gcm->send_notification($registration_ids, $message, $collapse_key);
