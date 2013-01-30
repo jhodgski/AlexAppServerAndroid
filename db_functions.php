@@ -8,7 +8,7 @@ class DB_Functions {
     //put your code here
     // constructor
     function __construct() {
-        include_once './db_connect.php';
+        require_once 'db_connect.php';
         // connecting to database
         $this->db = new DB_Connect();
         $this->db->connect();
@@ -28,15 +28,7 @@ class DB_Functions {
         $result = mysql_query("INSERT INTO alex_app_push_android (gcm_regid, created_at) VALUES('$gcm_regid', NOW())");
         // check for successful store
         if ($result) {
-            // get user details
-            $id = mysql_insert_id(); // last inserted id
-            $result = mysql_query("SELECT * FROM alex_app_push_android WHERE id = $id") or die(mysql_error());
-            // return user details
-            if (mysql_num_rows($result) > 0) {
-                return mysql_fetch_array($result);
-            } else {
-                return false;
-            }
+            return true;
         } else {
             return false;
         }

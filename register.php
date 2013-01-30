@@ -11,19 +11,20 @@ $json = array();
 if (isset($_POST["regId"])) {
     $gcm_regid = $_POST["regId"]; // GCM Registration ID
     // Store user details in db
-    include_once './db_functions.php';
-    include_once './GCM.php';
+    require_once 'db_functions.php';
+    require_once 'GCM.php';
 
     $db = new DB_Functions();
     $gcm = new GCM();
 
     $res = $db->storeUser($gcm_regid);
 
-    $registatoin_ids = array($gcm_regid);
+    $registration_ids = array($gcm_regid);
     //$message = array("product" => "shirt");
-    $message = array("You will receive notifications like this when there is an update to the Alex App.");
+    $message = array("thanks" => "You will receive notifications like this when there is an update to the Alex App.");
+    $collapse_key = "Thank you";
 
-    $result = $gcm->send_notification($registatoin_ids, $message);
+    $result = $gcm->send_notification($registration_ids, $message, $collapse_key);
 
     echo $result;
 } else {
