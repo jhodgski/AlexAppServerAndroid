@@ -25,12 +25,12 @@ class DB_Functions {
      */
     public function storeUser($gcm_regid) {
         // insert user into database
-        $result = mysql_query("INSERT INTO gcm_users(gcm_regid, created_at) VALUES('$gcm_regid', NOW())");
+        $result = mysql_query("INSERT INTO alex_app_push_android (gcm_regid, created_at) VALUES('$gcm_regid', NOW())");
         // check for successful store
         if ($result) {
             // get user details
             $id = mysql_insert_id(); // last inserted id
-            $result = mysql_query("SELECT * FROM gcm_users WHERE id = $id") or die(mysql_error());
+            $result = mysql_query("SELECT * FROM alex_app_push_android WHERE id = $id") or die(mysql_error());
             // return user details
             if (mysql_num_rows($result) > 0) {
                 return mysql_fetch_array($result);
@@ -46,7 +46,7 @@ class DB_Functions {
      * Getting all users
      */
     public function getAllUsers() {
-        $result = mysql_query("select * FROM gcm_users");
+        $result = mysql_query("select * FROM alex_app_push_android");
         return $result;
     }
 
